@@ -16,7 +16,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $encrypt_password = md5($mypassword);
     $encrypted_password = stripslashes($encrypt_password);
 
-    $sql = "SELECT id,status FROM user_accounts WHERE email='$myemail' and password='$encrypted_password'";
+    //$sql = "SELECT id,status FROM user_accounts WHERE email='$myemail' and password='$encrypted_password'";
+    $sql = "SELECT id,status FROM user_accounts WHERE email='$myemail'";
     $result = mysqli_query($db, $sql);
     $row = mysqli_fetch_array($result);
     $status = $row['status'];
